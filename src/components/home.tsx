@@ -37,7 +37,7 @@ const Home: React.FC<HomeProps> = (props) => {
           six: 0,
         }
   );
-  console.log("initial stats: ", stats);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [modalText, setModalText] = useState("");
   const [allUsedLetters, setAllUsedLetters] = useState("");
@@ -80,7 +80,6 @@ const Home: React.FC<HomeProps> = (props) => {
   const [cussWord, setCussWord] = useState(CUSS_WORDS[date.getDate()]);
 
   const setStatsFromCurrentGame = (attempts) => {
-    console.log(attempts);
     switch (attempts) {
       case 6:
         setStats((stats) => (stats.six += 1));
@@ -174,7 +173,6 @@ const Home: React.FC<HomeProps> = (props) => {
       );
       setStatsFromCurrentGame(currentLine);
       setTimeout(() => {
-        console.log("STATS", stats);
         isBrowser
           ? window.localStorage.setItem("fuckle-stats", JSON.stringify(stats))
           : stats;
@@ -191,7 +189,7 @@ const Home: React.FC<HomeProps> = (props) => {
       setModalText(
         `You failed! You piece of shit! How could you fail!? The word was ${cussWord}!`
       );
-      console.log("STATS", stats);
+
       setStatsFromCurrentGame(6);
       setTimeout(() => {
         isBrowser
@@ -269,26 +267,25 @@ const Home: React.FC<HomeProps> = (props) => {
 
   const determineDate = (currentDate, lastDate) => {
     if (!lastDate && !lastDate.length) return true;
-    console.log(currentDate, lastDate);
+
     if (currentDate !== lastDate) return true;
     return false;
   };
 
   return (
     <>
-      {determineDate(date.getDate().toString(), "1") ? (
+      {determineDate(date.getDate().toString(), date.getDate()) ? (
         <Box
           padding="2rem"
           flexDirection={"column"}
           display={"flex"}
-     paddingTop={".5rem"}
+          paddingTop={".5rem"}
           alignItems={"center"}
           width={"100vw"}
           height={"100vh"}
           backgroundColor={"#000"}
         >
           <Text
-
             fontFamily={"monospace"}
             fontSize={"4rem"}
             marginBottom={"1rem"}
@@ -301,7 +298,6 @@ const Home: React.FC<HomeProps> = (props) => {
             paddingBlock={".5rem"}
             width={"80vw"}
             height={"55vh"}
-
           >
             <TextLine
               active={currentLine === 1 ? true : false}

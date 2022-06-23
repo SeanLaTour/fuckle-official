@@ -16,7 +16,7 @@ interface KeyProps {
 const Key: React.FC<KeyProps> = (props) => {
   const [color, setColor] = useState("grey");
   useEffect(() => {
-    props.canChange ? setColor(props.color) : "";
+    setTimeout(() => (props.canChange ? setColor(props.color) : ""), 1000);
   }, [props.currentLine]);
 
   return (

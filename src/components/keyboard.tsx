@@ -44,7 +44,12 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
   const [toggleX, setToggleX] = useState({ color: "grey", keepSame: false });
   const [toggleY, setToggleY] = useState({ color: "grey", keepSame: false });
   const [toggleZ, setToggleZ] = useState({ color: "grey", keepSame: false });
+  const [toggleEnter, setToggleEnter] = useState({
+    color: "grey",
+    keepSame: false,
+  });
   const [canChange, setCanChange] = useState([]);
+  const [changeObjects, setChangeObjects] = useState([]);
 
   const addLetterToArray = (letter: string) => {
     if (!props.textObj) return;
@@ -91,9 +96,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
     const sliceNumbers = sliceIndex(currentLine);
     if (letters.includes(letter)) {
       const word = letters.slice(sliceNumbers[0], sliceNumbers[1]);
-      const indexCuss = cussword.split("").indexOf(letter);
       const indexWord = word.indexOf(letter);
       const currentLetter = letters[indexWord];
+      cussword = cussword.split("");
 
       function getAllIndexes(arr, val) {
         var indexes = [],
@@ -103,35 +108,131 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
         }
         return indexes;
       }
-      const allIndexes = getAllIndexes(cussword, currentLetter);
-      const findDoubleLetters = (word) => {
-        for (let i = 0; i <= 3; i++) {
-          for (let j = i; j <= 3; j++) {
-            if (word[i] === word[j + 1]) {
-              return word[i];
-            }
+
+      const indexesA = getAllIndexes(letters, letter);
+      const indexesB = getAllIndexes(cussword, letter);
+
+      const letterIncluded = () => {
+        let included = false;
+        changeObjects.forEach((changeObject) => {
+          if (letter === changeObject.letter) {
+            included = true;
           }
-          if (word[i] === word[i - 1]) {
-            return word[i];
-          }
-        }
+        });
+        return included;
       };
-      const doubleLetters = [];
-      doubleLetters.push(findDoubleLetters(cussword));
-      if (
-        (indexWord === indexCuss && indexCuss !== -1) ||
-        (indexWord === allIndexes[1] && indexCuss !== -1)
-      ) {
-        setFunction({ color: "green", keepSame: true });
-      } else if (
-        cussword.includes(letter) &&
-        !letters.slice(0, sliceNumbers[0]).includes(letter) &&
-        !keepSame
-      ) {
-        setFunction({ color: "yellow", keepSame: false });
-      } else if (!keepSame && !cussword.includes(letter)) {
-        setFunction({ color: "#333", keepSame: true });
+
+      if (letterIncluded()) {
+        return;
       }
+
+      const changeArray = [];
+      console.log(indexesA, indexesB);
+      if (indexesA.length === 2 && indexesB.length === 2) {
+        if (indexesA[1] === indexesB[1]) {
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: true,
+            included: false,
+            incorrect: false,
+          });
+        } else if (indexesA[0] === indexesB[0]) {
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: true,
+            included: false,
+            incorrect: false,
+          });
+        } else if (indexesA[0] === indexesB[1]) {
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: true,
+            included: false,
+            incorrect: false,
+          });
+        } else if (indexesA[1] === indexesB[0]) {
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: true,
+            included: false,
+            incorrect: false,
+          });
+        } else if (cussword.includes(letter)) {
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: false,
+            included: true,
+            incorrect: false,
+          });
+        }
+      } else if (indexesA.length === 2 && indexesB.length === 1) {
+        if (indexesA[1] === indexesB[0] || indexesA[0] === indexesB[0]) {
+          console.log("here");
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: true,
+            included: false,
+            incorrect: false,
+          });
+        } else if (cussword.includes(letter)) {
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: false,
+            included: true,
+            incorrect: false,
+          });
+        }
+      } else if (indexesA.length === 1 && indexesB.length === 2) {
+        if (indexesA[0] === indexesB[1]) {
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: true,
+            included: false,
+            incorrect: false,
+          });
+        } else if (cussword.includes(letter)) {
+          changeArray.push({
+            canChange: false,
+            letter,
+            correct: false,
+            included: true,
+            incorrect: false,
+          });
+        }
+      } else if (indexesA[0] === indexesB[0]) {
+        changeArray.push({
+          canChange: false,
+          letter,
+          correct: true,
+          included: false,
+          incorrect: false,
+        });
+      } else if (cussword.includes(letter)) {
+        changeArray.push({
+          canChange: false,
+          letter,
+          correct: false,
+          included: true,
+          incorrect: false,
+        });
+      } else {
+        changeArray.push({
+          canChange: false,
+          letter,
+          correct: false,
+          included: false,
+          incorrect: true,
+        });
+      }
+      setColors(changeArray);
     }
   };
 
@@ -143,9 +244,314 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
     props.textObj.setText(tempText);
     const tempChange = canChange.slice(0, canChange.length - 1);
     setCanChange(tempChange);
+    setChangeObjects([changeObjects.slice(0, changeObjects.length - 1)]);
+  };
+
+  const setColors = (changeArray) => {
+    changeArray.forEach((change) => {
+      switch (change.letter) {
+        case "H":
+          if (change.canChange) {
+            return;
+          } else if (change.correct) {
+            setToggleH({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleH({ color: "yellow", keepSame: false });
+          } else if (change.incorrect) {
+            setToggleH({ color: "#333", keepSame: true });
+          }
+          break;
+        case "A":
+          if (toggleA.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleA({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleA({ color: "yellow", keepSame: false });
+          } else {
+            setToggleA({ color: "#333", keepSame: true });
+          }
+          break;
+        case "B":
+          if (toggleB.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleB({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleB({ color: "yellow", keepSame: false });
+          } else {
+            setToggleB({ color: "#333", keepSame: true });
+          }
+          break;
+        case "C":
+          if (toggleC.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleC({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleC({ color: "yellow", keepSame: false });
+          } else {
+            setToggleC({ color: "#333", keepSame: true });
+          }
+          break;
+        case "D":
+          if (toggleD.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleD({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleD({ color: "yellow", keepSame: false });
+          } else {
+            setToggleD({ color: "#333", keepSame: true });
+          }
+          break;
+        case "E":
+          if (toggleE.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleE({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleE({ color: "yellow", keepSame: false });
+          } else {
+            setToggleE({ color: "#333", keepSame: true });
+          }
+          break;
+        case "F":
+          if (toggleF.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleF({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleF({ color: "yellow", keepSame: false });
+          } else {
+            setToggleF({ color: "#333", keepSame: true });
+          }
+          break;
+        case "G":
+          if (toggleG.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleG({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleG({ color: "yellow", keepSame: false });
+          } else {
+            setToggleG({ color: "#333", keepSame: true });
+          }
+          break;
+
+        case "I":
+          if (toggleI.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleI({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleI({ color: "yellow", keepSame: false });
+          } else {
+            setToggleI({ color: "#333", keepSame: true });
+          }
+          break;
+        case "J":
+          if (toggleJ.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleJ({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleJ({ color: "yellow", keepSame: false });
+          } else {
+            setToggleJ({ color: "#333", keepSame: true });
+          }
+          break;
+        case "K":
+          if (toggleK.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleK({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleK({ color: "yellow", keepSame: false });
+          } else {
+            setToggleK({ color: "#333", keepSame: true });
+          }
+          break;
+        case "L":
+          if (toggleL.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleL({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleL({ color: "yellow", keepSame: false });
+          } else {
+            setToggleL({ color: "#333", keepSame: true });
+          }
+          break;
+        case "M":
+          if (toggleM.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleM({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleM({ color: "yellow", keepSame: false });
+          } else {
+            setToggleM({ color: "#333", keepSame: true });
+          }
+          break;
+        case "N":
+          if (toggleN.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleN({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleN({ color: "yellow", keepSame: false });
+          } else {
+            setToggleN({ color: "#333", keepSame: true });
+          }
+          break;
+        case "O":
+          if (toggleO.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleO({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleO({ color: "yellow", keepSame: false });
+          } else {
+            setToggleO({ color: "#333", keepSame: true });
+          }
+          break;
+        case "P":
+          if (toggleP.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleP({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleP({ color: "yellow", keepSame: false });
+          } else {
+            setToggleP({ color: "#333", keepSame: true });
+          }
+          break;
+        case "Q":
+          if (toggleQ.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleQ({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleQ({ color: "yellow", keepSame: false });
+          } else {
+            setToggleQ({ color: "#333", keepSame: true });
+          }
+          break;
+        case "R":
+          if (toggleR.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleR({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleR({ color: "yellow", keepSame: false });
+          } else {
+            setToggleR({ color: "#333", keepSame: true });
+          }
+          break;
+        case "S":
+          if (toggleS.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleS({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleS({ color: "yellow", keepSame: false });
+          } else {
+            setToggleS({ color: "#333", keepSame: true });
+          }
+          break;
+        case "T":
+          if (toggleT.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleT({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleT({ color: "yellow", keepSame: false });
+          } else {
+            setToggleT({ color: "#333", keepSame: true });
+          }
+          break;
+        case "U":
+          if (toggleU.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleU({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleU({ color: "yellow", keepSame: false });
+          } else {
+            setToggleU({ color: "#333", keepSame: true });
+          }
+          break;
+        case "V":
+          if (toggleV.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleV({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleV({ color: "yellow", keepSame: false });
+          } else {
+            setToggleV({ color: "#333", keepSame: true });
+          }
+          break;
+        case "W":
+          if (toggleW.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleW({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleW({ color: "yellow", keepSame: false });
+          } else {
+            setToggleW({ color: "#333", keepSame: true });
+          }
+          break;
+        case "X":
+          if (toggleX.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleX({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleX({ color: "yellow", keepSame: false });
+          } else {
+            setToggleX({ color: "#333", keepSame: true });
+          }
+          break;
+        case "Y":
+          if (toggleY.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleY({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleY({ color: "yellow", keepSame: false });
+          } else {
+            setToggleY({ color: "#333", keepSame: true });
+          }
+          break;
+        case "Z":
+          if (toggleZ.keepSame) {
+            return;
+          } else if (change.correct) {
+            setToggleZ({ color: "green", keepSame: true });
+          } else if (change.included) {
+            setToggleZ({ color: "yellow", keepSame: false });
+          } else {
+            setToggleZ({ color: "#333", keepSame: true });
+          }
+          break;
+        default:
+          break;
+      }
+    });
   };
 
   useEffect(() => {
+    colorCodeUsedLetters(
+      props.textObj.text,
+      "Enter",
+      props.currentLine,
+      props.cussword,
+      setToggleEnter,
+      toggleEnter.keepSame
+    );
     colorCodeUsedLetters(
       props.textObj.text,
       "U",
