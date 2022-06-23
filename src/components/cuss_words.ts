@@ -4,7 +4,7 @@ export const CUSS_WORDS = [
   "PISS",
   "CUNT",
   "DICK",
-  "JIZZ", 
+  "JIZZ",
   "TITS",
   "COCK",
   "DONG",

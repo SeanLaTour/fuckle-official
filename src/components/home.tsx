@@ -17,9 +17,13 @@ import Stats from "./stats";
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = (props) => {
-  const date = new Date()
+  const date = new Date();
   const isBrowser = typeof window !== "undefined";
-  const [lastDate, setLastDate] = useState(isBrowser && window.localStorage.getItem("fuckle-last-played") ? window.localStorage.getItem("fuckle-last-played") : "")
+  const [lastDate, setLastDate] = useState(
+    isBrowser && window.localStorage.getItem("fuckle-last-played")
+      ? window.localStorage.getItem("fuckle-last-played")
+      : ""
+  );
   const [toggleStats, setToggleStates] = useState(false);
   const [stats, setStats] = useState(
     isBrowser && window.localStorage.getItem("fuckle-stats")
@@ -73,9 +77,7 @@ const Home: React.FC<HomeProps> = (props) => {
     "black",
   ]);
   const [currentLine, setCurrentLine] = useState(1);
-  const [cussWord, setCussWord] = useState(
-    CUSS_WORDS[Math.floor(Math.random() * CUSS_WORDS.length)]
-  );
+  const [cussWord, setCussWord] = useState(CUSS_WORDS[date.getDate()]);
 
   const setStatsFromCurrentGame = (attempts) => {
     console.log(attempts);
@@ -176,8 +178,11 @@ const Home: React.FC<HomeProps> = (props) => {
         isBrowser
           ? window.localStorage.setItem("fuckle-stats", JSON.stringify(stats))
           : stats;
-          isBrowser
-          ? window.localStorage.setItem("fuckle-last-played", JSON.stringify(date.getDate()))
+        isBrowser
+          ? window.localStorage.setItem(
+              "fuckle-last-played",
+              JSON.stringify(date.getDate())
+            )
           : "";
         onOpen();
       }, 2000);
@@ -192,8 +197,11 @@ const Home: React.FC<HomeProps> = (props) => {
         isBrowser
           ? window.localStorage.setItem("fuckle-stats", JSON.stringify(stats))
           : stats;
-          isBrowser
-          ? window.localStorage.setItem("fuckle-last-played", JSON.stringify(date.getDate()))
+        isBrowser
+          ? window.localStorage.setItem(
+              "fuckle-last-played",
+              JSON.stringify(date.getDate())
+            )
           : "";
         onOpen();
       }, 2000);
@@ -259,164 +267,160 @@ const Home: React.FC<HomeProps> = (props) => {
     }
   };
 
-  const homeUseEffect = async () => {
-    const res = await fetch("https://62b3d12503a97f00088c03f4--zingy-horse-b785ac.netlify.app/.netlify/functions/deploy")
-    const data = await res.json()
-    console.log(data)
-    setCussWord(data)
-  }
-
-  useEffect(() => {
-    homeUseEffect()
-  },[])
-
-  console.log("getdate",date.getDate())
-
   const determineDate = (currentDate, lastDate) => {
-    if (!lastDate && !lastDate.length) return true
-    console.log(currentDate, lastDate)
-    if (currentDate !== lastDate) return true
-    return false
-  }
-
- console.log("Date thing:", determineDate(date.getDate().toString(), "21"))
+    if (!lastDate && !lastDate.length) return true;
+    console.log(currentDate, lastDate);
+    if (currentDate !== lastDate) return true;
+    return false;
+  };
 
   return (
     <>
-    {determineDate(date.getDate().toString(), lastDate) ?   <Box
-        padding="2rem"
-        flexDirection={"column"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        width={"100vw"}
-        height={"1000px"}
-        backgroundColor={"#000"}
-      >
-        <Text
-          marginTop={"-200px"}
-          fontFamily={"monospace"}
-          fontSize={"4rem"}
-          marginBottom={"2rem"}
-          color={"white"}
-        >
-          FUCKLE
-        </Text>
+      {determineDate(date.getDate().toString(), lastDate) ? (
         <Box
-          padding={"0.5rem"}
-          paddingBlock={".5rem"}
-          width={"80vw"}
-          height={"34rem"}
-          borderColor={"white"}
-          borderStyle={"solid"}
-          borderRadius={"5px"}
-          borderWidth={"2px"}
+          padding="2rem"
+          flexDirection={"column"}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          width={"100vw"}
+          height={"1000px"}
+          backgroundColor={"#000"}
         >
-          <TextLine
-            active={currentLine === 1 ? true : false}
-            textColors={textAColors}
-            textArray={textA}
-          />
-          <TextLine
-            active={currentLine === 2 ? true : false}
-            textColors={textBColors}
-            textArray={textB}
-          />
-          <TextLine
-            active={currentLine === 3 ? true : false}
-            textColors={textCColors}
-            textArray={textC}
-          />
-          <TextLine
-            active={currentLine === 4 ? true : false}
-            textColors={textDColors}
-            textArray={textD}
-          />
-          <TextLine
-            active={currentLine === 5 ? true : false}
-            textColors={textEColors}
-            textArray={textE}
+          <Text
+            marginTop={"-200px"}
+            fontFamily={"monospace"}
+            fontSize={"4rem"}
+            marginBottom={"2rem"}
+            color={"white"}
+          >
+            FUCKLE
+          </Text>
+          <Box
+            padding={"0.5rem"}
+            paddingBlock={".5rem"}
+            width={"80vw"}
+            height={"34rem"}
+            borderColor={"white"}
+            borderStyle={"solid"}
+            borderRadius={"5px"}
+            borderWidth={"2px"}
+          >
+            <TextLine
+              active={currentLine === 1 ? true : false}
+              textColors={textAColors}
+              textArray={textA}
+            />
+            <TextLine
+              active={currentLine === 2 ? true : false}
+              textColors={textBColors}
+              textArray={textB}
+            />
+            <TextLine
+              active={currentLine === 3 ? true : false}
+              textColors={textCColors}
+              textArray={textC}
+            />
+            <TextLine
+              active={currentLine === 4 ? true : false}
+              textColors={textDColors}
+              textArray={textD}
+            />
+            <TextLine
+              active={currentLine === 5 ? true : false}
+              textColors={textEColors}
+              textArray={textE}
+            />
+          </Box>
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent
+              zIndex={99}
+              alignItems={"center"}
+              justifyContent={"center"}
+              paddingInline={"2rem"}
+              display={"flex"}
+              textAlign={"center"}
+            >
+              {toggleStats ? (
+                <Stats
+                  stats={
+                    isBrowser
+                      ? JSON.parse(window.localStorage.getItem("fuckle-stats"))
+                      : stats
+                  }
+                />
+              ) : (
+                <Box
+                  display={"flex"}
+                  borderRadius={"5px"}
+                  padding="2rem"
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                  flexDirection={"column"}
+                  width={"85vw"}
+                  borderWidth={"2px"}
+                  borderColor={"white"}
+                  height={"20vh"}
+                  backgroundColor="#111"
+                >
+                  <Text color="white">{modalText}</Text>
+                  <Button
+                    onClick={() => {
+                      setToggleStates(true);
+                    }}
+                    marginTop="1rem"
+                    color={"white"}
+                  >
+                    See Stats
+                  </Button>
+                </Box>
+              )}
+            </ModalContent>
+          </Modal>
+          <Keyboard
+            currentLine={currentLine}
+            onClick={enterChecker}
+            textObj={determineLine(currentLine)}
+            addText={addTextToLine}
+            allUsedLetters={allUsedLetters}
+            setAllUsedLetters={setAllUsedLetters}
+            cussword={cussWord}
           />
         </Box>
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent
-            zIndex={99}
-            alignItems={"center"}
-            justifyContent={"center"}
-            paddingInline={"2rem"}
-            display={"flex"}
+      ) : (
+        <Box
+          padding="2rem"
+          flexDirection={"column"}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          width={"100vw"}
+          height={"1000px"}
+          backgroundColor={"#000"}
+        >
+          {" "}
+          <Text
+            marginTop={"-200px"}
+            fontFamily={"monospace"}
+            fontSize={"3rem"}
+            marginBottom={"2rem"}
+            color={"white"}
             textAlign={"center"}
           >
-            {toggleStats ? (
-              <Stats
-                stats={isBrowser ? JSON.parse(window.localStorage.getItem("fuckle-stats")) : stats}
-              />
-            ) : (
-              <Box
-                display={"flex"}
-                borderRadius={"5px"}
-                padding="2rem"
-                alignItems={"center"}
-                justifyContent={"center"}
-                flexDirection={"column"}
-                width={"85vw"}
-                borderWidth={"2px"}
-                borderColor={"white"}
-                height={"20vh"}
-                backgroundColor="#111"
-              >
-                <Text color="white">{modalText}</Text>
-                <Button
-                  onClick={() => {
-                    setToggleStates(true);
-                  }}
-                  marginTop="1rem"
-                  color={"white"}
-                >
-                  See Stats
-                </Button>
-              </Box>
-            )}
-          </ModalContent>
-        </Modal>
-        <Keyboard
-          currentLine={currentLine}
-          onClick={enterChecker}
-          textObj={determineLine(currentLine)}
-          addText={addTextToLine}
-          allUsedLetters={allUsedLetters}
-          setAllUsedLetters={setAllUsedLetters}
-          cussword={cussWord}
-        />
-      </Box> : <Box
-        padding="2rem"
-        flexDirection={"column"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        width={"100vw"}
-        height={"1000px"}
-        backgroundColor={"#000"}
-      >        <Text
-      marginTop={"-200px"}
-      fontFamily={"monospace"}
-      fontSize={"4rem"}
-      marginBottom={"2rem"}
-      color={"white"}
-      textAlign={"center"}
-    >
-      Next word will be available at midnight ...
-    </Text>
-    <Text
-
-      fontFamily={"monospace"}
-      fontSize={"4rem"}
-      marginBottom={"2rem"}
-      color={"white"}
-      textAlign={"center"}
-    >Bitch.</Text></Box>}
-    
+            Next word will be available at midnight ...
+          </Text>
+          <Text
+            fontFamily={"monospace"}
+            fontSize={"4rem"}
+            marginBottom={"2rem"}
+            color={"white"}
+            textAlign={"center"}
+          >
+            Bitch
+          </Text>
+        </Box>
+      )}
     </>
   );
 };
