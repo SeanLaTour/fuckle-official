@@ -1,8 +1,9 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import React from "react";
 
 interface StatsProps {
   stats: object;
+  onClose: Function;
 }
 
 const Stats: React.FC<StatsProps> = (props) => {
@@ -38,11 +39,16 @@ const Stats: React.FC<StatsProps> = (props) => {
       width={"85vw"}
       borderWidth={"2px"}
       borderColor={"white"}
-      height={"27vh"}
+      height={"40vh"}
       backgroundColor="#111"
     >
-      <Text marginBottom={".25rem"} fontSize={"1.5rem"} color={"white"}>
-        Stats
+      <Text
+        marginTop={"-1rem"}
+        marginBottom={"1rem"}
+        fontSize={"1.5rem"}
+        color={"silver"}
+      >
+        STATS
       </Text>
       <Box
         width={"95%"}
@@ -51,7 +57,7 @@ const Stats: React.FC<StatsProps> = (props) => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Text width={"2rem"} marginInline={".5rem"} color={"white"}>
+        <Text width={"2rem"} marginInline={".5rem"} color={"silver"}>
           1
         </Text>
 
@@ -68,7 +74,7 @@ const Stats: React.FC<StatsProps> = (props) => {
             width={`${getPercent(props.stats.one)}%`}
           ></Box>
         </Box>
-        <Text width={"2rem"} color={"white"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
           {" "}
           {props.stats.one}
         </Text>
@@ -80,7 +86,7 @@ const Stats: React.FC<StatsProps> = (props) => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Text width={"2rem"} marginInline={".5rem"} color={"white"}>
+        <Text width={"2rem"} marginInline={".5rem"} color={"silver"}>
           2
         </Text>
         <Box
@@ -96,7 +102,7 @@ const Stats: React.FC<StatsProps> = (props) => {
             width={`${getPercent(props.stats.two)}%`}
           ></Box>
         </Box>
-        <Text width={"2rem"} color={"white"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
           {" "}
           {props.stats.two}
         </Text>
@@ -108,7 +114,7 @@ const Stats: React.FC<StatsProps> = (props) => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Text width={"2rem"} marginInline={".5rem"} color={"white"}>
+        <Text width={"2rem"} marginInline={".5rem"} color={"silver"}>
           3
         </Text>
         <Box
@@ -124,7 +130,7 @@ const Stats: React.FC<StatsProps> = (props) => {
             width={`${getPercent(props.stats.three)}%`}
           ></Box>
         </Box>
-        <Text width={"2rem"} color={"white"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
           {" "}
           {props.stats.three}
         </Text>
@@ -136,7 +142,7 @@ const Stats: React.FC<StatsProps> = (props) => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Text width={"2rem"} marginInline={".5rem"} color={"white"}>
+        <Text width={"2rem"} marginInline={".5rem"} color={"silver"}>
           4
         </Text>
         <Box
@@ -152,7 +158,7 @@ const Stats: React.FC<StatsProps> = (props) => {
             width={`${getPercent(props.stats.four)}%`}
           ></Box>
         </Box>
-        <Text width={"2rem"} color={"white"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
           {" "}
           {props.stats.four}
         </Text>
@@ -164,7 +170,7 @@ const Stats: React.FC<StatsProps> = (props) => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Text width={"2rem"} marginInline={".5rem"} color={"white"}>
+        <Text width={"2rem"} marginInline={".5rem"} color={"silver"}>
           5
         </Text>
         <Box
@@ -180,7 +186,7 @@ const Stats: React.FC<StatsProps> = (props) => {
             width={`${getPercent(props.stats.five)}%`}
           ></Box>
         </Box>
-        <Text width={"2rem"} color={"white"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
           {" "}
           {props.stats.five}
         </Text>
@@ -192,7 +198,7 @@ const Stats: React.FC<StatsProps> = (props) => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Text width={"2rem"} marginInline={".5rem"} color={"white"}>
+        <Text width={"2rem"} marginInline={".5rem"} color={"silver"}>
           F
         </Text>
         <Box
@@ -208,11 +214,22 @@ const Stats: React.FC<StatsProps> = (props) => {
             width={`${getPercent(props.stats.six)}%`}
           ></Box>
         </Box>
-        <Text width={"2rem"} color={"white"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
           {" "}
           {props.stats.six}
         </Text>
       </Box>
+      <Button
+        onClick={props.onClose}
+        fontWeight={"bold"}
+        borderRadius={"5px"}
+        paddingBlock={".25rem"}
+        paddingInline={"1rem"}
+        marginTop={"2rem"}
+        backgroundColor={"silver"}
+      >
+        Close
+      </Button>
     </Box>
   );
 };

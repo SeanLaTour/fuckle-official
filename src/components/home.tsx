@@ -276,7 +276,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
   return (
     <>
-      {determineDate(date.getDate().toString(), lastDate) ? (
+      {determineDate(date.getDate().toString(), "1") ? (
         <Box
           padding="2rem"
           flexDirection={"column"}
@@ -333,7 +333,7 @@ const Home: React.FC<HomeProps> = (props) => {
             />
           </Box>
           <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
+            <ModalOverlay onClick={onClose} />
             <ModalContent
               zIndex={99}
               alignItems={"center"}
@@ -344,6 +344,7 @@ const Home: React.FC<HomeProps> = (props) => {
             >
               {toggleStats ? (
                 <Stats
+                  onClose={onClose}
                   stats={
                     isBrowser
                       ? JSON.parse(window.localStorage.getItem("fuckle-stats"))
