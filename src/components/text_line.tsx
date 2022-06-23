@@ -28,7 +28,7 @@ const TextLine: React.FC<TextLineProps> = (props) => {
         width="22%"
         borderWidth={"1px"}
         fontSize={"5vh"}
-        height={"60%"}
+        height={"80%"}
         color={"white"}
       >
         {props.textArray[0]}
@@ -45,7 +45,7 @@ const TextLine: React.FC<TextLineProps> = (props) => {
         borderColor={props.active ? "yellow" : "white"}
         borderWidth={"1px"}
         fontSize={"5vh"}
-        height={"60%"}
+        height={"80%"}
         color={"white"}
       >
         {props.textArray[1]}
@@ -62,7 +62,7 @@ const TextLine: React.FC<TextLineProps> = (props) => {
         borderColor={props.active ? "yellow" : "white"}
         borderWidth={"1px"}
         fontSize={"5vh"}
-        height={"60%"}
+        height={"80%"}
         color={"white"}
       >
         {props.textArray[2]}
@@ -79,7 +79,7 @@ const TextLine: React.FC<TextLineProps> = (props) => {
         borderColor={props.active ? "yellow" : "white"}
         borderWidth={"1px"}
         fontSize={"5vh"}
-        height={"60%"}
+        height={"80%"}
         color={"white"}
       >
         {props.textArray[3]}

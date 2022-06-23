@@ -276,22 +276,22 @@ const Home: React.FC<HomeProps> = (props) => {
 
   return (
     <>
-      {determineDate(date.getDate().toString(), lastDate) ? (
+      {determineDate(date.getDate().toString(), "1") ? (
         <Box
           padding="2rem"
           flexDirection={"column"}
           display={"flex"}
-          justifyContent={"center"}
+     paddingTop={".5rem"}
           alignItems={"center"}
           width={"100vw"}
-          height={"1000px"}
+          height={"100vh"}
           backgroundColor={"#000"}
         >
           <Text
-            marginTop={"-200px"}
+
             fontFamily={"monospace"}
             fontSize={"4rem"}
-            marginBottom={"2rem"}
+            marginBottom={"1rem"}
             color={"white"}
           >
             FUCKLE
@@ -300,11 +300,8 @@ const Home: React.FC<HomeProps> = (props) => {
             padding={"0.5rem"}
             paddingBlock={".5rem"}
             width={"80vw"}
-            height={"34rem"}
-            borderColor={"white"}
-            borderStyle={"solid"}
-            borderRadius={"5px"}
-            borderWidth={"2px"}
+            height={"55vh"}
+
           >
             <TextLine
               active={currentLine === 1 ? true : false}
