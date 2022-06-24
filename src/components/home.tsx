@@ -277,7 +277,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
   return (
     <>
-      {determineDate(date.getDate().toString(), "1") ? (
+      {determineDate(date.getDate().toString(), lastDate) ? (
         <Box
           padding="2rem"
           flexDirection={"column"}
