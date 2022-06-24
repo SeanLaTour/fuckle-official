@@ -285,12 +285,9 @@ const Home: React.FC<HomeProps> = (props) => {
           paddingTop={".5rem"}
           alignItems={"center"}
           width={"100vw"}
-          height={"140vh"}
+          height={"100vh"}
           backgroundColor={"#000"}
         >
-
-
-<AdComponent />
 
           <Text
             fontFamily={"monospace"}
