@@ -286,9 +286,13 @@ const Home: React.FC<HomeProps> = (props) => {
           height={"100vh"}
           backgroundColor={"#000"}
         >
-          <AdSense.Google
+
+<AdSense.Google
   client='ca-pub-4651779567680129'
   slot='6842240717'
+  style={{ display: 'block' }}
+  layout='in-article'
+  format='fluid'
 />
 
           <Text
