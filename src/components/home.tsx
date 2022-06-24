@@ -274,7 +274,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
   return (
     <>
-      {determineDate(date.getDate().toString(), date.getDate()) ? (
+      {determineDate(date.getDate().toString(), lastDate) ? (
         <Box
           padding="2rem"
           flexDirection={"column"}
@@ -390,7 +390,7 @@ const Home: React.FC<HomeProps> = (props) => {
           justifyContent={"center"}
           alignItems={"center"}
           width={"100vw"}
-          height={"1000px"}
+          height={"100vh"}
           backgroundColor={"#000"}
         >
           {" "}
