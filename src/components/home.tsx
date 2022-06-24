@@ -296,13 +296,13 @@ const Home: React.FC<HomeProps> = (props) => {
               width: "100vw",
               height: "2rem",
             }}
-            layout='in-article'
-            format='fluid'
+            layout="in-article"
+            format="fluid"
           />
           <Text
             fontFamily={"monospace"}
             fontSize={"4rem"}
-            marginTop={"2rem"}
+            marginTop={"1rem"}
             color={"white"}
           >
             FUCKLE
