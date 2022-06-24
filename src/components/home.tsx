@@ -275,7 +275,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
   return (
     <>
-      {determineDate(date.getDate().toString(), lastDate) ? (
+      {determineDate(date.getDate().toString(), "1") ? (
         <Box
           padding="2rem"
           flexDirection={"column"}
@@ -287,18 +287,10 @@ const Home: React.FC<HomeProps> = (props) => {
           backgroundColor={"#000"}
         >
           <AdSense.Google
-            client="ca-pub-4651779567680129"
-            slot="6842240717"
-            style={{
-              position: "fixed",
-              top: "0",
-              left: "0",
-              width: "100vw",
-              height: "2rem",
-            }}
-            layout="in-article"
-            format="fluid"
-          />
+  client='ca-pub-4651779567680129'
+  slot='6842240717'
+/>
+
           <Text
             fontFamily={"monospace"}
             fontSize={"4rem"}
