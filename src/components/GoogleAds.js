@@ -9,8 +9,8 @@ render () {
     return (
         <ins className='adsbygoogle'
           style={{ display: 'block', width: "250px" }}
-          data-ad-client='ca-pub-12121212'
-          data-ad-slot='12121212'
+          data-ad-client='ca-pub-4651779567680129'
+          data-ad-slot='6842240717'
           data-ad-format='auto' />
     );
   }
