@@ -22,10 +22,8 @@ export default function HTML(props) {
         />
         {props.postBodyComponents}
       </body>
-      <script
-        async
-        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      ></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4651779567680129"
+     crossorigin="anonymous"></script>
     </html>
   );
 }
