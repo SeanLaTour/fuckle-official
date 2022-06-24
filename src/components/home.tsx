@@ -409,9 +409,9 @@ const Home: React.FC<HomeProps> = (props) => {
         >
           {" "}
           <Text
-            marginTop={"-200px"}
             fontFamily={"monospace"}
             fontSize={"3rem"}
+            marginTop={"2rem"}
             marginBottom={"2rem"}
             color={"white"}
             textAlign={"center"}
