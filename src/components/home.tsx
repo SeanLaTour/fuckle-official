@@ -14,8 +14,10 @@ import { CUSS_WORDS } from "./cuss_words";
 import Keyboard from "./keyboard";
 import Stats from "./stats";
 import AdSense from "react-adsense";
+import AdComponent from "./GoogleAds";
 
 interface HomeProps {}
+
 
 const Home: React.FC<HomeProps> = (props) => {
   const date = new Date();
@@ -288,14 +290,7 @@ const Home: React.FC<HomeProps> = (props) => {
         >
 
 
-<AdSense.Google
-  client='ca-pub-4651779567680129'
-  slot='6842240717'
-  style={{ display: 'block', width: "250px" }}
-  format='auto'
-  responsive='true'
-  layoutKey='-gw-1+2a-9x+5c'
-/>
+<AdComponent />
 
           <Text
             fontFamily={"monospace"}
