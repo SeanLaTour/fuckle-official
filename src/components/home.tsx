@@ -290,7 +290,7 @@ const Home: React.FC<HomeProps> = (props) => {
 <AdSense.Google
   client='ca-pub-4651779567680129'
   slot='6842240717'
-  style={{ display: 'block' }}
+  style={{ display: 'block', width: "260px", height: "100px" }}
   layout='in-article'
   format='fluid'
 />
