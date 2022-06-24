@@ -285,7 +285,7 @@ const Home: React.FC<HomeProps> = (props) => {
           paddingTop={".5rem"}
           alignItems={"center"}
           width={"100vw"}
-          height={"100vh"}
+          height={"140vh"}
           backgroundColor={"#000"}
         >
 

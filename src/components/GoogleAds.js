@@ -8,7 +8,7 @@ export default class AdComponent extends React.Component {
 render () {
     return (
         <ins className='adsbygoogle'
-          style={{ display: 'block', width: "250px" }}
+          style={{ display: 'block', width: "250px", height: "60px" }}
           data-ad-client='ca-pub-4651779567680129'
           data-ad-slot='6842240717'
           data-ad-format='auto' />
