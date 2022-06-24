@@ -24,7 +24,6 @@
     "@emotion/styled": "^11.9.3",
     "framer-motion": "^6.3.11",
     "gatsby": "^4.16.0",
-    "gatsby-plugin-google-analytics": "^4.17.0",
     "gatsby-plugin-google-gtag": "^4.17.0",
     "react": "^18.1.0",
     "react-adsense": "^0.1.0",
