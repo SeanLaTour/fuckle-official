@@ -13,6 +13,7 @@ import TextLine from "./text_line";
 import { CUSS_WORDS } from "./cuss_words";
 import Keyboard from "./keyboard";
 import Stats from "./stats";
+import AdSense from "react-adsense";
 
 interface HomeProps {}
 
@@ -274,7 +275,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
   return (
     <>
-      {determineDate(date.getDate().toString(), lastDate) ? (
+      {determineDate(date.getDate().toString(), "1") ? (
         <Box
           padding="2rem"
           flexDirection={"column"}
@@ -285,10 +286,21 @@ const Home: React.FC<HomeProps> = (props) => {
           height={"100vh"}
           backgroundColor={"#000"}
         >
+          <AdSense.Google
+            client="ca-pub-4651779567680129"
+            slot="6842240717"
+            style={{
+              position: "fixed",
+              top: "0",
+              left: "0",
+              width: "100vw",
+              height: "4rem",
+            }}
+          />
           <Text
             fontFamily={"monospace"}
             fontSize={"4rem"}
-            marginBottom={"1rem"}
+            marginTop={"4rem"}
             color={"white"}
           >
             FUCKLE
