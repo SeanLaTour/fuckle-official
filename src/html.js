@@ -7,6 +7,15 @@ export default function HTML(props) {
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-224QNH8S3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-224QNH8S3S');
+</script>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
