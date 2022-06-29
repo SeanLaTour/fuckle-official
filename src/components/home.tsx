@@ -327,7 +327,6 @@ const Home: React.FC<HomeProps> = (props) => {
   };
 
   const renderModal = () => {
-    console.log(JSON.parse(window.localStorage.getItem("fuckle-stats")));
     if (toggleAbout) {
       return <About onClose={onClose} />;
     } else if (toggleStats) {
