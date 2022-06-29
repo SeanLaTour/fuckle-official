@@ -7,16 +7,10 @@ interface StatsProps {
 }
 
 const Stats: React.FC<StatsProps> = (props) => {
-  console.log("stats stats: ", props.stats);
-  const getPercent = (number) => {
-    console.log(
-      props.stats.one,
-      props.stats.two,
-      props.stats.three,
-      props.stats.four,
-      props.stats.five,
-      props.stats.six
-    );
+  const getTotalTimesPlayed = () => {
+    if (!props.stats) {
+      return 0;
+    }
     const total =
       props.stats.one +
       props.stats.two +
@@ -24,10 +18,24 @@ const Stats: React.FC<StatsProps> = (props) => {
       props.stats.four +
       props.stats.five +
       props.stats.six;
-    console.log(total);
+    return total;
+  };
+
+  const getPercent = (number) => {
+    if (!props.stats) {
+      return 0;
+    }
+    const total =
+      props.stats.one +
+      props.stats.two +
+      props.stats.three +
+      props.stats.four +
+      props.stats.five +
+      props.stats.six;
+
     return (number / total) * 100;
   };
-  console.log(getPercent(props.stats.six));
+
   return (
     <Box
       display={"flex"}
@@ -38,11 +46,13 @@ const Stats: React.FC<StatsProps> = (props) => {
       flexDirection={"column"}
       width={"85vw"}
       borderWidth={"2px"}
-      borderColor={"white"}
-      height={"42vh"}
+      borderColor={"#565656"}
+      height={"60vh"}
       backgroundColor="#111"
+      marginTop={"-17vh"}
     >
       <Text
+        fontFamily={"monospace"}
         marginTop={"-1rem"}
         marginBottom={"1rem"}
         fontSize={"1.5rem"}
@@ -50,6 +60,23 @@ const Stats: React.FC<StatsProps> = (props) => {
       >
         STATS
       </Text>
+      <Box
+        width={"95%"}
+        display={"flex"}
+        flexDirection={"row"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        marginBottom={"1rem"}
+      >
+        <Text width={"2rem"} marginInline={"1rem"} color={"silver"}>
+          Games
+        </Text>
+
+        <Text width={"2rem"} marginInline={".25rem"} color={"silver"}>
+          {getTotalTimesPlayed()}
+        </Text>
+      </Box>
+
       <Box
         width={"95%"}
         display={"flex"}
@@ -69,16 +96,28 @@ const Stats: React.FC<StatsProps> = (props) => {
         >
           <Box
             borderRadius={"3px"}
-            backgroundColor={"green"}
+            display={"flex"}
+            alignItems={"center"}
+            backgroundColor={"#4b7a47"}
             height={"1rem"}
-            width={`${getPercent(props.stats.one)}%`}
-          ></Box>
+            width={`${getPercent(props.stats ? props.stats.one : 0)}%`}
+            justifyContent={"right"}
+          >
+            <Text marginRight={".25rem"} color="#111" fontSize={".4rem"}>
+              {props.stats &&
+              Number(getPercent(props.stats ? props.stats.one : 0).toFixed(1)) >
+                15
+                ? `${getPercent(props.stats ? props.stats.one : 0).toFixed(1)}%`
+                : ""}
+            </Text>
+          </Box>
         </Box>
-        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={".5rem"}>
           {" "}
-          {props.stats.one}
+          {props.stats ? props.stats.one : 0}
         </Text>
       </Box>
+
       <Box
         width={"95%"}
         display={"flex"}
@@ -97,14 +136,25 @@ const Stats: React.FC<StatsProps> = (props) => {
         >
           <Box
             borderRadius={"3px"}
-            backgroundColor={"green"}
+            display={"flex"}
+            alignItems={"center"}
+            backgroundColor={"#4b7a47"}
             height={"1rem"}
-            width={`${getPercent(props.stats.two)}%`}
-          ></Box>
+            width={`${getPercent(props.stats ? props.stats.two : 0)}%`}
+            justifyContent={"right"}
+          >
+            <Text marginRight={".25rem"} color="#111" fontSize={".4rem"}>
+              {props.stats &&
+              Number(getPercent(props.stats ? props.stats.two : 0).toFixed(1)) >
+                15
+                ? `${getPercent(props.stats ? props.stats.two : 0).toFixed(1)}%`
+                : ""}
+            </Text>
+          </Box>
         </Box>
-        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={".5rem"}>
           {" "}
-          {props.stats.two}
+          {props.stats ? props.stats.two : 0}
         </Text>
       </Box>
       <Box
@@ -125,14 +175,28 @@ const Stats: React.FC<StatsProps> = (props) => {
         >
           <Box
             borderRadius={"3px"}
-            backgroundColor={"green"}
+            display={"flex"}
+            alignItems={"center"}
+            backgroundColor={"#4b7a47"}
             height={"1rem"}
-            width={`${getPercent(props.stats.three)}%`}
-          ></Box>
+            width={`${getPercent(props.stats ? props.stats.three : 0)}%`}
+            justifyContent={"right"}
+          >
+            <Text marginRight={".25rem"} color="#111" fontSize={".4rem"}>
+              {props.stats &&
+              Number(
+                getPercent(props.stats ? props.stats.three : 0).toFixed(1)
+              ) > 15
+                ? `${getPercent(props.stats ? props.stats.three : 0).toFixed(
+                    1
+                  )}%`
+                : ""}
+            </Text>
+          </Box>
         </Box>
-        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={".5rem"}>
           {" "}
-          {props.stats.three}
+          {props.stats ? props.stats.three : 0}
         </Text>
       </Box>
       <Box
@@ -153,14 +217,28 @@ const Stats: React.FC<StatsProps> = (props) => {
         >
           <Box
             borderRadius={"3px"}
-            backgroundColor={"green"}
+            display={"flex"}
+            alignItems={"center"}
+            backgroundColor={"#4b7a47"}
             height={"1rem"}
-            width={`${getPercent(props.stats.four)}%`}
-          ></Box>
+            width={`${getPercent(props.stats ? props.stats.four : 0)}%`}
+            justifyContent={"right"}
+          >
+            <Text marginRight={".25rem"} color="#111" fontSize={".4rem"}>
+              {props.stats &&
+              Number(
+                getPercent(props.stats ? props.stats.four : 0).toFixed(1)
+              ) > 15
+                ? `${getPercent(props.stats ? props.stats.four : 0).toFixed(
+                    1
+                  )}%`
+                : ""}
+            </Text>
+          </Box>
         </Box>
-        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={".5rem"}>
           {" "}
-          {props.stats.four}
+          {props.stats ? props.stats.four : 0}
         </Text>
       </Box>
       <Box
@@ -181,44 +259,31 @@ const Stats: React.FC<StatsProps> = (props) => {
         >
           <Box
             borderRadius={"3px"}
-            backgroundColor={"green"}
+            display={"flex"}
+            alignItems={"center"}
+            backgroundColor={"#4b7a47"}
             height={"1rem"}
-            width={`${getPercent(props.stats.five)}%`}
-          ></Box>
+            width={`${getPercent(props.stats ? props.stats.five : 0)}%`}
+            justifyContent={"right"}
+          >
+            <Text marginRight={".25rem"} color="#111" fontSize={".4rem"}>
+              {props.stats &&
+              Number(
+                getPercent(props.stats ? props.stats.five : 0).toFixed(1)
+              ) > 15
+                ? `${getPercent(props.stats ? props.stats.five : 0).toFixed(
+                    1
+                  )}%`
+                : ""}
+            </Text>
+          </Box>
         </Box>
-        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
+        <Text width={"2rem"} color={"silver"} marginInline={".5rem"}>
           {" "}
-          {props.stats.five}
+          {props.stats ? props.stats.five : 0}
         </Text>
       </Box>
-      <Box
-        width={"95%"}
-        display={"flex"}
-        flexDirection={"row"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-      >
-        <Text width={"2rem"} marginInline={".5rem"} color={"silver"}>
-          F
-        </Text>
-        <Box
-          alignItems={"center"}
-          height={"1rem"}
-          width={"95%"}
-          justifyContent={"left"}
-        >
-          <Box
-            borderRadius={"3px"}
-            backgroundColor={"green"}
-            height={"1rem"}
-            width={`${getPercent(props.stats.six)}%`}
-          ></Box>
-        </Box>
-        <Text width={"2rem"} color={"silver"} marginInline={"0.5.5rem"}>
-          {" "}
-          {props.stats.six}
-        </Text>
-      </Box>
+
       <Button
         onClick={props.onClose}
         fontWeight={"bold"}
@@ -226,7 +291,9 @@ const Stats: React.FC<StatsProps> = (props) => {
         paddingBlock={".25rem"}
         paddingInline={"1rem"}
         marginTop={"2rem"}
-        backgroundColor={"silver"}
+        backgroundColor={"#878787"}
+        color={"#222"}
+        width={"85%"}
       >
         Close
       </Button>

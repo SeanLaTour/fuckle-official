@@ -18,34 +18,34 @@ interface TextObj {
 }
 
 const Keyboard: React.FC<KeyboardProps> = (props) => {
-  const [toggleU, setToggleU] = useState({ color: "grey", keepSame: false });
-  const [toggleF, setToggleF] = useState({ color: "grey", keepSame: false });
-  const [toggleG, setToggleG] = useState({ color: "grey", keepSame: false });
-  const [toggleA, setToggleA] = useState({ color: "grey", keepSame: false });
-  const [toggleB, setToggleB] = useState({ color: "grey", keepSame: false });
-  const [toggleC, setToggleC] = useState({ color: "grey", keepSame: false });
-  const [toggleD, setToggleD] = useState({ color: "grey", keepSame: false });
-  const [toggleE, setToggleE] = useState({ color: "grey", keepSame: false });
-  const [toggleH, setToggleH] = useState({ color: "grey", keepSame: false });
-  const [toggleI, setToggleI] = useState({ color: "grey", keepSame: false });
-  const [toggleJ, setToggleJ] = useState({ color: "grey", keepSame: false });
-  const [toggleK, setToggleK] = useState({ color: "grey", keepSame: false });
-  const [toggleL, setToggleL] = useState({ color: "grey", keepSame: false });
-  const [toggleM, setToggleM] = useState({ color: "grey", keepSame: false });
-  const [toggleN, setToggleN] = useState({ color: "grey", keepSame: false });
-  const [toggleO, setToggleO] = useState({ color: "grey", keepSame: false });
-  const [toggleP, setToggleP] = useState({ color: "grey", keepSame: false });
-  const [toggleQ, setToggleQ] = useState({ color: "grey", keepSame: false });
-  const [toggleR, setToggleR] = useState({ color: "grey", keepSame: false });
-  const [toggleS, setToggleS] = useState({ color: "grey", keepSame: false });
-  const [toggleT, setToggleT] = useState({ color: "grey", keepSame: false });
-  const [toggleV, setToggleV] = useState({ color: "grey", keepSame: false });
-  const [toggleW, setToggleW] = useState({ color: "grey", keepSame: false });
-  const [toggleX, setToggleX] = useState({ color: "grey", keepSame: false });
-  const [toggleY, setToggleY] = useState({ color: "grey", keepSame: false });
-  const [toggleZ, setToggleZ] = useState({ color: "grey", keepSame: false });
+  const [toggleU, setToggleU] = useState({ color: "#676767", keepSame: false });
+  const [toggleF, setToggleF] = useState({ color: "#676767", keepSame: false });
+  const [toggleG, setToggleG] = useState({ color: "#676767", keepSame: false });
+  const [toggleA, setToggleA] = useState({ color: "#676767", keepSame: false });
+  const [toggleB, setToggleB] = useState({ color: "#676767", keepSame: false });
+  const [toggleC, setToggleC] = useState({ color: "#676767", keepSame: false });
+  const [toggleD, setToggleD] = useState({ color: "#676767", keepSame: false });
+  const [toggleE, setToggleE] = useState({ color: "#676767", keepSame: false });
+  const [toggleH, setToggleH] = useState({ color: "#676767", keepSame: false });
+  const [toggleI, setToggleI] = useState({ color: "#676767", keepSame: false });
+  const [toggleJ, setToggleJ] = useState({ color: "#676767", keepSame: false });
+  const [toggleK, setToggleK] = useState({ color: "#676767", keepSame: false });
+  const [toggleL, setToggleL] = useState({ color: "#676767", keepSame: false });
+  const [toggleM, setToggleM] = useState({ color: "#676767", keepSame: false });
+  const [toggleN, setToggleN] = useState({ color: "#676767", keepSame: false });
+  const [toggleO, setToggleO] = useState({ color: "#676767", keepSame: false });
+  const [toggleP, setToggleP] = useState({ color: "#676767", keepSame: false });
+  const [toggleQ, setToggleQ] = useState({ color: "#676767", keepSame: false });
+  const [toggleR, setToggleR] = useState({ color: "#676767", keepSame: false });
+  const [toggleS, setToggleS] = useState({ color: "#676767", keepSame: false });
+  const [toggleT, setToggleT] = useState({ color: "#676767", keepSame: false });
+  const [toggleV, setToggleV] = useState({ color: "#676767", keepSame: false });
+  const [toggleW, setToggleW] = useState({ color: "#676767", keepSame: false });
+  const [toggleX, setToggleX] = useState({ color: "#676767", keepSame: false });
+  const [toggleY, setToggleY] = useState({ color: "#676767", keepSame: false });
+  const [toggleZ, setToggleZ] = useState({ color: "#676767", keepSame: false });
   const [toggleEnter, setToggleEnter] = useState({
-    color: "grey",
+    color: "#676767",
     keepSame: false,
   });
   const [canChange, setCanChange] = useState([]);
@@ -254,9 +254,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (change.canChange) {
             return;
           } else if (change.correct) {
-            setToggleH({ color: "green", keepSame: true });
+            setToggleH({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleH({ color: "yellow", keepSame: false });
+            setToggleH({ color: "#d6bc5c", keepSame: false });
           } else if (change.incorrect) {
             setToggleH({ color: "#333", keepSame: true });
           }
@@ -265,9 +265,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleA.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleA({ color: "green", keepSame: true });
+            setToggleA({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleA({ color: "yellow", keepSame: false });
+            setToggleA({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleA({ color: "#333", keepSame: true });
           }
@@ -276,9 +276,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleB.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleB({ color: "green", keepSame: true });
+            setToggleB({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleB({ color: "yellow", keepSame: false });
+            setToggleB({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleB({ color: "#333", keepSame: true });
           }
@@ -287,9 +287,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleC.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleC({ color: "green", keepSame: true });
+            setToggleC({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleC({ color: "yellow", keepSame: false });
+            setToggleC({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleC({ color: "#333", keepSame: true });
           }
@@ -298,9 +298,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleD.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleD({ color: "green", keepSame: true });
+            setToggleD({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleD({ color: "yellow", keepSame: false });
+            setToggleD({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleD({ color: "#333", keepSame: true });
           }
@@ -309,9 +309,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleE.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleE({ color: "green", keepSame: true });
+            setToggleE({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleE({ color: "yellow", keepSame: false });
+            setToggleE({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleE({ color: "#333", keepSame: true });
           }
@@ -320,9 +320,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleF.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleF({ color: "green", keepSame: true });
+            setToggleF({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleF({ color: "yellow", keepSame: false });
+            setToggleF({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleF({ color: "#333", keepSame: true });
           }
@@ -331,9 +331,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleG.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleG({ color: "green", keepSame: true });
+            setToggleG({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleG({ color: "yellow", keepSame: false });
+            setToggleG({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleG({ color: "#333", keepSame: true });
           }
@@ -343,9 +343,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleI.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleI({ color: "green", keepSame: true });
+            setToggleI({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleI({ color: "yellow", keepSame: false });
+            setToggleI({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleI({ color: "#333", keepSame: true });
           }
@@ -354,9 +354,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleJ.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleJ({ color: "green", keepSame: true });
+            setToggleJ({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleJ({ color: "yellow", keepSame: false });
+            setToggleJ({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleJ({ color: "#333", keepSame: true });
           }
@@ -365,9 +365,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleK.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleK({ color: "green", keepSame: true });
+            setToggleK({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleK({ color: "yellow", keepSame: false });
+            setToggleK({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleK({ color: "#333", keepSame: true });
           }
@@ -376,9 +376,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleL.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleL({ color: "green", keepSame: true });
+            setToggleL({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleL({ color: "yellow", keepSame: false });
+            setToggleL({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleL({ color: "#333", keepSame: true });
           }
@@ -387,9 +387,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleM.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleM({ color: "green", keepSame: true });
+            setToggleM({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleM({ color: "yellow", keepSame: false });
+            setToggleM({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleM({ color: "#333", keepSame: true });
           }
@@ -398,9 +398,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleN.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleN({ color: "green", keepSame: true });
+            setToggleN({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleN({ color: "yellow", keepSame: false });
+            setToggleN({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleN({ color: "#333", keepSame: true });
           }
@@ -409,9 +409,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleO.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleO({ color: "green", keepSame: true });
+            setToggleO({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleO({ color: "yellow", keepSame: false });
+            setToggleO({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleO({ color: "#333", keepSame: true });
           }
@@ -420,9 +420,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleP.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleP({ color: "green", keepSame: true });
+            setToggleP({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleP({ color: "yellow", keepSame: false });
+            setToggleP({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleP({ color: "#333", keepSame: true });
           }
@@ -431,9 +431,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleQ.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleQ({ color: "green", keepSame: true });
+            setToggleQ({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleQ({ color: "yellow", keepSame: false });
+            setToggleQ({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleQ({ color: "#333", keepSame: true });
           }
@@ -442,9 +442,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleR.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleR({ color: "green", keepSame: true });
+            setToggleR({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleR({ color: "yellow", keepSame: false });
+            setToggleR({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleR({ color: "#333", keepSame: true });
           }
@@ -453,9 +453,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleS.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleS({ color: "green", keepSame: true });
+            setToggleS({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleS({ color: "yellow", keepSame: false });
+            setToggleS({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleS({ color: "#333", keepSame: true });
           }
@@ -464,9 +464,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleT.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleT({ color: "green", keepSame: true });
+            setToggleT({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleT({ color: "yellow", keepSame: false });
+            setToggleT({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleT({ color: "#333", keepSame: true });
           }
@@ -475,9 +475,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleU.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleU({ color: "green", keepSame: true });
+            setToggleU({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleU({ color: "yellow", keepSame: false });
+            setToggleU({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleU({ color: "#333", keepSame: true });
           }
@@ -486,9 +486,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleV.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleV({ color: "green", keepSame: true });
+            setToggleV({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleV({ color: "yellow", keepSame: false });
+            setToggleV({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleV({ color: "#333", keepSame: true });
           }
@@ -497,9 +497,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleW.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleW({ color: "green", keepSame: true });
+            setToggleW({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleW({ color: "yellow", keepSame: false });
+            setToggleW({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleW({ color: "#333", keepSame: true });
           }
@@ -508,9 +508,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleX.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleX({ color: "green", keepSame: true });
+            setToggleX({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleX({ color: "yellow", keepSame: false });
+            setToggleX({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleX({ color: "#333", keepSame: true });
           }
@@ -519,9 +519,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleY.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleY({ color: "green", keepSame: true });
+            setToggleY({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleY({ color: "yellow", keepSame: false });
+            setToggleY({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleY({ color: "#333", keepSame: true });
           }
@@ -530,9 +530,9 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           if (toggleZ.keepSame) {
             return;
           } else if (change.correct) {
-            setToggleZ({ color: "green", keepSame: true });
+            setToggleZ({ color: "#4b7a47", keepSame: true });
           } else if (change.included) {
-            setToggleZ({ color: "yellow", keepSame: false });
+            setToggleZ({ color: "#d6bc5c", keepSame: false });
           } else {
             setToggleZ({ color: "#333", keepSame: true });
           }
@@ -966,7 +966,7 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
         paddingBlock=".6rem"
       >
         <Key
-          color="grey"
+          color="#676767"
           currentLine={props.currentLine}
           cussword={props.cussword}
           allUsedLetters={props.allUsedLetters}
@@ -1040,7 +1040,7 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
           canChange={determineIfCanChange(canChange, "M")}
         />
         <Key
-          color="grey"
+          color="#676767"
           currentLine={props.currentLine}
           cussword={props.cussword}
           allUsedLetters={props.allUsedLetters}

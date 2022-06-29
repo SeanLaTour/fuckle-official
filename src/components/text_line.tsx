@@ -18,18 +18,18 @@ const TextLine: React.FC<TextLineProps> = (props) => {
     >
       <Text
         fontFamily={"monospace"}
-        borderColor={props.active ? "yellow" : "white"}
+        borderColor={props.active ? "#777777" : "#474747"}
         transition="background-color 2000ms linear, border-color 1000ms linear"
         backgroundColor={props.textColors[0]}
-        borderRadius={"5px"}
+        borderRadius={"2px"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         width="22%"
         borderWidth={"1px"}
         fontSize={"5vh"}
-        height={"80%"}
-        color={"white"}
+        height={"90%"}
+        color={"#cdcdcd"}
       >
         {props.textArray[0]}
       </Text>
@@ -37,16 +37,16 @@ const TextLine: React.FC<TextLineProps> = (props) => {
         fontFamily={"monospace"}
         transition="background-color 2000ms linear, border-color 1000ms linear"
         backgroundColor={props.textColors[1]}
-        borderRadius={"5px"}
+        borderRadius={"2px"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         width="22%"
-        borderColor={props.active ? "yellow" : "white"}
+        borderColor={props.active ? "#777777" : "#474747"}
         borderWidth={"1px"}
         fontSize={"5vh"}
-        height={"80%"}
-        color={"white"}
+        height={"90%"}
+        color={"#cdcdcd"}
       >
         {props.textArray[1]}
       </Text>
@@ -54,16 +54,16 @@ const TextLine: React.FC<TextLineProps> = (props) => {
         fontFamily={"monospace"}
         transition="background-color 2000ms linear, border-color 1000ms linear"
         backgroundColor={props.textColors[2]}
-        borderRadius={"5px"}
+        borderRadius={"2px"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         width="22%"
-        borderColor={props.active ? "yellow" : "white"}
+        borderColor={props.active ? "#777777" : "#474747"}
         borderWidth={"1px"}
         fontSize={"5vh"}
-        height={"80%"}
-        color={"white"}
+        height={"90%"}
+        color={"#cdcdcd"}
       >
         {props.textArray[2]}
       </Text>
@@ -71,16 +71,16 @@ const TextLine: React.FC<TextLineProps> = (props) => {
         fontFamily={"monospace"}
         transition="background-color 2000ms linear, border-color 1000ms linear"
         backgroundColor={props.textColors[3]}
-        borderRadius={"5px"}
+        borderRadius={"2px"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         width="22%"
-        borderColor={props.active ? "yellow" : "white"}
+        borderColor={props.active ? "#777777" : "#474747"}
         borderWidth={"1px"}
         fontSize={"5vh"}
-        height={"80%"}
-        color={"white"}
+        height={"90%"}
+        color={"#cdcdcd"}
       >
         {props.textArray[3]}
       </Text>

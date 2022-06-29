@@ -14,7 +14,7 @@ interface KeyProps {
 }
 
 const Key: React.FC<KeyProps> = (props) => {
-  const [color, setColor] = useState("grey");
+  const [color, setColor] = useState("#676767");
   useEffect(() => {
     setTimeout(() => (props.canChange ? setColor(props.color) : ""), 1000);
   }, [props.currentLine]);
@@ -32,15 +32,15 @@ const Key: React.FC<KeyProps> = (props) => {
       alignItems={"center"}
       borderWidth={".3px"}
       borderColor={"#777"}
-      _active={{ borderColor: "white" }}
+      _active={{ borderColor: "#cdcdcd" }}
       marginInline={"0.2rem"}
       borderRadius={"5px"}
       backgroundColor={color}
       width={props.thickKey ? "12vw" : "8vw"}
       height={"100%"}
-      color={"white"}
+      color={"#cdcdcd"}
     >
-      <Text fontWeight={"bold"} color={"white"}>
+      <Text fontWeight={"bold"} color={"#cdcdcd"}>
         {props.letter}
       </Text>
     </Box>
