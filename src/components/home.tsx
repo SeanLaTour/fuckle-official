@@ -508,7 +508,7 @@ const Home: React.FC<HomeProps> = (props) => {
         </Box>
       ) : (
         <Box
-          padding="2rem"
+          padding="5rem"
           flexDirection={"column"}
           display={"flex"}
           justifyContent={"center"}
