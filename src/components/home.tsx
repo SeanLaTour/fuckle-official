@@ -374,10 +374,11 @@ const Home: React.FC<HomeProps> = (props) => {
           >
             {cussWordDetails.word.toLocaleLowerCase()}
           </Text>
-          <Text as="i" marginBottom={".5rem"} color="#cdcdcd">
+          <Text as="i" marginBottom={"1rem"} color="#cdcdcd">
             {cussWordDetails.pronounce}
           </Text>
           <Text
+            fontSize={".75rem"}
             borderRadius={"3px"}
             paddingInline={".5rem"}
             backgroundColor={"#232323"}
@@ -387,13 +388,28 @@ const Home: React.FC<HomeProps> = (props) => {
           >
             {cussWordDetails.type}
           </Text>
-          <Text as="i" marginBottom={".5rem"} color="#cdcdcd">
+          <Text
+            fontSize={".75rem"}
+            as="i"
+            marginBottom={".5rem"}
+            color="#cdcdcd"
+          >
             {cussWordDetails.def}
           </Text>
-          <Text as="i" marginBottom={".5rem"} color="#cdcdcd">
+          <Text
+            fontSize={".75rem"}
+            as="i"
+            marginBottom={".5rem"}
+            color="#cdcdcd"
+          >
             {cussWordDetails.def2}
           </Text>
-          <Text as="i" marginBottom={"2rem"} color="#cdcdcd">
+          <Text
+            fontSize={".75rem"}
+            as="i"
+            marginBottom={"2rem"}
+            color="#cdcdcd"
+          >
             "{cussWordDetails.example}"
           </Text>
 
@@ -418,7 +434,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
   return (
     <>
-      {determineDate(date.getDate().toString(), "123") ? (
+      {determineDate(date.getDate().toString(), lastDate) ? (
         <Box
           padding="2rem"
           flexDirection={"column"}
