@@ -352,7 +352,7 @@ const Home: React.FC<HomeProps> = (props) => {
           width={"85vw"}
           borderWidth={"2px"}
           borderColor={"#565656"}
-          height={"60vh"}
+          height={"59vh"}
           marginTop={"-17vh"}
           backgroundColor="#111"
         >
