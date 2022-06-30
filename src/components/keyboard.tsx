@@ -127,7 +127,7 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
       }
 
       const changeArray = [];
-      console.log(indexesA, indexesB);
+
       if (indexesA.length === 2 && indexesB.length === 2) {
         if (indexesA[1] === indexesB[1]) {
           changeArray.push({
@@ -172,7 +172,6 @@ const Keyboard: React.FC<KeyboardProps> = (props) => {
         }
       } else if (indexesA.length === 2 && indexesB.length === 1) {
         if (indexesA[1] === indexesB[0] || indexesA[0] === indexesB[0]) {
-          console.log("here");
           changeArray.push({
             canChange: false,
             letter,

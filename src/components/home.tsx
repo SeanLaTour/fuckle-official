@@ -95,7 +95,7 @@ const Home: React.FC<HomeProps> = (props) => {
     "#272727",
     "#272727",
   ]);
-  console.log(date.getMonth());
+
   const getMonthWords = (month) => {
     switch (month) {
       case 0:
