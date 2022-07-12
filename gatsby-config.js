@@ -1,9 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `fuckle`,
-    siteUrl: `https://www.fucklegame.com`,
+    title: `Fuckle`,
+    description:
+      "Fuckle is a word game with only your favorite four letter cuss words! Go Fuckle yourself today!",
+    url: `https://www.fucklegame.com`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {

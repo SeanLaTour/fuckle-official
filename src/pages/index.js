@@ -1,12 +1,17 @@
 import * as React from "react";
 import { ChakraProvider } from "@chakra-ui/provider";
 import Home from "../components/home";
+import SEO from "../components/seo";
 
 const IndexPage = () => {
   return (
-    <ChakraProvider>
-      <Home />
-    </ChakraProvider>
+    <>
+      {" "}
+      <SEO />
+      <ChakraProvider>
+        <Home />
+      </ChakraProvider>
+    </>
   );
 };
 
