@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Fuckle`,
     description:
-      "Fuck you! Fuckle is a word game with only your favorite four letter cuss words! Go Fuckle yourself today!",
+      "Fuck you! Fuckle is a word game with only your favorite four letter cuss words! Keep track of your stats and learn new curse words! Go Fuckle yourself today!",
     url: `https://www.fucklegame.com`,
   },
   plugins: [
