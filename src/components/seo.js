@@ -28,6 +28,13 @@ const SEO = ({ title, description, image, article }) => {
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+      <meta
+        name="keywords"
+        content={
+          "shit, piss, fuck, cunt, cock, twat, fart, word, game, games, wordle, sweardle, cuss, swear, curse, boob, boobs, tits, jizz, four, letter, words, guess, letters, letter"
+        }
+      />
+      <link rel="canonical" href={seo.url} />
 
       {seo.url && <meta property="og:url" content={seo.url} />}
 

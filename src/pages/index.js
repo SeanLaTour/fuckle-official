@@ -8,6 +8,10 @@ const IndexPage = () => {
     <>
       {" "}
       <SEO />
+      <h1 style={{ display: "none" }}>
+        Shit, piss, fuck, cunt, cocksucker, motherfucker, tits, fart, dirty
+        twat!
+      </h1>
       <ChakraProvider>
         <Home />
       </ChakraProvider>
