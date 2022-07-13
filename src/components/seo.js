@@ -31,7 +31,7 @@ const SEO = ({ title, description, image, article }) => {
       <meta
         name="keywords"
         content={
-          "fuckle, shit, piss, fuck, cunt, cock, twat, fart, word, game, games, wordle, sweardle, cuss, swear, curse, boob, boobs, tits, jizz, four, letter, words, guess, letters, letter"
+          "fuckle, fucklegame, shit, piss, fuck, cunt, cock, twat, fart, word, game, games, wordle, sweardle, cuss, swear, curse, boob, boobs, tits, jizz, four, letter, words, guess, letters, letter"
         }
       />
       <link rel="canonical" href={seo.url} />
